@@ -12,29 +12,42 @@ recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 newsapi = "12d21c3618c748b29d7155e35479830a"
 
-def speak_old(text):
+# Function to set the voice to female
+def set_female_voice():
+    voices = engine.getProperty('voices')
+    for voice in voices:
+        if "Zira" in voice.name:  # Replace "Zira" with the female voice name on your system
+            engine.setProperty('voice', voice.id)
+            print(f"Set to female voice: {voice.name}")
+            return
+    print("No female voice found.")
+
+# Apply the female voice
+set_female_voice()
+
+def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-def speak(text):
-    tts = gTTS(text)
-    tts.save('temp.mp3') 
+# def speak(text):
+#     tts = gTTS(text)
+#     tts.save('temp.mp3') 
 
-     # Initialize Pygame mixer
-    pygame.mixer.init()
+#      # Initialize Pygame mixer
+#     pygame.mixer.init()
 
-    # Load the MP3 file
-    pygame.mixer.music.load('temp.mp3')
+#     # Load the MP3 file
+#     pygame.mixer.music.load('temp.mp3')
 
-    # Play the MP3 file
-    pygame.mixer.music.play()
+#     # Play the MP3 file
+#     pygame.mixer.music.play()
 
-    # Keep the program running until the music stops playing
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
+#     # Keep the program running until the music stops playing
+#     while pygame.mixer.music.get_busy():
+#         pygame.time.Clock().tick(10)
     
-    pygame.mixer.music.unload()
-    os.remove("temp.mp3") 
+#     pygame.mixer.music.unload()
+#     os.remove("temp.mp3") 
 
 def aiProcess(command):
     client = OpenAI(api_key="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",
