@@ -85,7 +85,7 @@ def processCommand(c):
         #     speak("Sorry, I don't have that song in my library.")
 
     elif "news" in c.lower():
-        r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey=12d21c3618c748b29d7155e35479830a")
+        # r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey=12d21c3618c748b29d7155e35479830a")
         if r.status_code == 200:
             #press the JSON response
             data = r.json()
