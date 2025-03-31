@@ -92,7 +92,7 @@ centered = stripped.center(30, '-')
 encoded = stripped.encode()
 
 # Demonstrating all results
-print(f"Original: '{text}'")
+print(f"Original: {text}")
 print(f"Stripped: '{stripped}'")
 print(f"Lowered: '{lowered}'")
 print(f"Uppered: '{uppered}'")
